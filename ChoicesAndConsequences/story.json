@@ -1,0 +1,107 @@
+[
+  {
+    "SceneId": "start",
+    "Text": "Ви стоїте перед величними воротами особняка Блеквуд. Туман стає дедалі густішим. Ви відчуваєте, що за вами хтось спостерігає.",
+    "ImagePath": "mansion_gates",
+    "Choices": [
+      {
+        "Text": "Оглянути ворота",
+        "NextSceneId": "inspect",
+        "EnergyCost": 2
+      },
+      {
+        "Text": "Зазирнути в кущі",
+        "NextSceneId": "find_coffee",
+        "EnergyCost": 2
+      },
+      {
+        "Text": "Зайти всередину",
+        "NextSceneId": "hall",
+        "EnergyCost": 1,
+        "RequiredItem": "old_key"
+      }
+    ]
+  },
+  {
+    "SceneId": "inspect",
+    "Text": "На іржавих ґратах висить стара табличка. Ви помітили щось блискуче в траві під нею. О, це старий ключ!",
+    "ImagePath": "mansion_key",
+    "Choices": [
+      {
+        "Text": "Повернутись до воріт",
+        "NextSceneId": "start",
+        "EnergyCost": 0
+      }
+    ]
+  },
+  {
+    "SceneId": "find_coffee",
+    "Text": "Ви розсунули колючі гілки кущів. Ого! Хтось заховав тут термос із гарячою кавою. Виглядає підозріло, але пахне чудово.",
+    "ImagePath": "mansion_gates",
+    "Choices": [
+      {
+        "Text": "Забрати термос",
+        "NextSceneId": "bushes_picked",
+        "EnergyCost": 2
+      },
+      {
+        "Text": "Випити каву",
+        "NextSceneId": "bushes_empty",
+        "EnergyCost": 0
+      },
+      {
+        "Text": "Повернутися",
+        "NextSceneId": "start",
+        "EnergyCost": 0
+      }
+    ]
+  },
+  {
+    "SceneId": "bushes_picked",
+    "Text": "Ви акуратно забрали термос у сумку. Тепер у кущах залишилася лише прим'ята трава. Більше тут нічого робити.",
+    "ImagePath": "mansion_gates",
+    "Choices": [
+      {
+        "Text": "Повернутися до воріт",
+        "NextSceneId": "start",
+        "EnergyCost": 0
+      }
+    ]
+  },
+  {
+    "SceneId": "bushes_empty",
+    "Text": "Ви випили каву прямо тут. Сил побільшало, а порожній термос ви залишили під кущем. В кущах більше нічого цікавого.",
+    "ImagePath": "mansion_gates",
+    "Choices": [
+      {
+        "Text": "Повернутися до воріт",
+        "NextSceneId": "start",
+        "EnergyCost": 0
+      }
+    ]
+  },
+  {
+    "SceneId": "hall",
+    "Text": "Ворота зі скрипом відчинилися. Ви проходите довгою алеєю і опиняєтесь у Головному холі. Тут пахне пилом. На підлозі видно свіжі сліди...",
+    "ImagePath": "mansion_hall",
+    "Choices": [
+      {
+        "Text": "Оглянути сліди",
+        "NextSceneId": "traces",
+        "EnergyCost": 2
+      }
+    ]
+  },
+  {
+    "SceneId": "traces",
+    "Text": "Сліди ведуть до зачинених дверей кабінету. Ви чуєте тихий шепіт за стіною.",
+    "ImagePath": "mansion_hall",
+    "Choices": [
+      {
+        "Text": "Повернутись у хол",
+        "NextSceneId": "hall",
+        "EnergyCost": 0
+      }
+    ]
+  }
+]
