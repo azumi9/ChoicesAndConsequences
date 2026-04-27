@@ -13,5 +13,9 @@ namespace ChoicesAndConsequences.Models
 
         // Додаткові поля для завантаження з JSON
         public string? RequiredItem { get; set; }
+
+        // ДОДАНО:
+        public string? RequiredRank { get; set; } // Ранг, потрібний для дії 
+        public bool PromoteRank { get; set; } = false; // Чи підвищує ця дія ранг гравця
     }
 }

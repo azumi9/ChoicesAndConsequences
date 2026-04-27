@@ -15,16 +15,33 @@
         "EnergyCost": 2
       },
       {
-        "Text": "Зайти всередину",
-        "NextSceneId": "hall",
+        "Text": "Підійти до особняка",
+        "NextSceneId": "mansion_door",
+        "EnergyCost": 1
+      }
+    ]
+  },
+  {
+    "SceneId": "mansion_door",
+    "Text": "Ви підійшли до масивних головних дверей. Смикнули за ручку — замкнено. Замок виглядає дуже старим, потрібен відповідний ключ.",
+    "ImagePath": "mansion_door",
+    "Choices": [
+      {
+        "Text": "Відімкнути двері (потрібен Іржавий ключ)",
+        "NextSceneId": "corridor",
         "EnergyCost": 1,
         "RequiredItem": "old_key"
+      },
+      {
+        "Text": "Повернутись до воріт",
+        "NextSceneId": "start",
+        "EnergyCost": 0
       }
     ]
   },
   {
     "SceneId": "inspect",
-    "Text": "На іржавих ґратах висить стара табличка. Ви помітили щось блискуче в траві під нею. О, це старий ключ!",
+    "Text": "Ви підходите ближче до напіввідчинених воріт. Серед мокрого осіннього листя на землі ви помічаєте щось блискуче. Це ж старий ключ!",
     "ImagePath": "mansion_key",
     "Choices": [
       {
@@ -81,14 +98,49 @@
     ]
   },
   {
+    "SceneId": "corridor",
+    "Text": "Ви переступаєте поріг і опиняєтесь у напівтемному коридорі. Зі стін на вас дивляться старі портрети родини Блеквуд. Попереду ледь освітлений вхід до Головного холу.",
+    "ImagePath": "mansion_corridor",
+    "Choices": [
+      {
+        "Text": "Йти прямо в Головний хол",
+        "NextSceneId": "hall",
+        "EnergyCost": 1
+      },
+      {
+        "Text": "Оглянути портрети",
+        "NextSceneId": "paintings",
+        "EnergyCost": 2
+      }
+    ]
+  },
+  {
+    "SceneId": "paintings",
+    "Text": "Жах! На портреті похмурого чоловіка ви помічаєте чіткий кривавий відбиток долоні. Кров ще свіжа... Хтось пройшов тут зовсім недавно.",
+    "ImagePath": "portrait_blood",
+    "Choices": [
+      {
+        "Text": "Зробити нотатки і пройти в хол (Ранг підвищено!)",
+        "NextSceneId": "hall",
+        "EnergyCost": 0,
+        "PromoteRank": true
+      }
+    ]
+  },
+  {
     "SceneId": "hall",
-    "Text": "Ворота зі скрипом відчинилися. Ви проходите довгою алеєю і опиняєтесь у Головному холі. Тут пахне пилом. На підлозі видно свіжі сліди...",
+    "Text": "Ви у Головному холі. Тут пахне пилом. Ви бачите двері до Кабінету та темний куток під сходами.",
     "ImagePath": "mansion_hall",
     "Choices": [
       {
-        "Text": "Оглянути сліди",
-        "NextSceneId": "traces",
-        "EnergyCost": 2
+        "Text": "Увійти до Кабінету",
+        "NextSceneId": "office",
+        "EnergyCost": 1
+      },
+      {
+        "Text": "Оглянути темний куток під сходами",
+        "NextSceneId": "rat_trap",
+        "EnergyCost": 0
       }
     ]
   },
@@ -100,6 +152,66 @@
       {
         "Text": "Повернутись у хол",
         "NextSceneId": "hall",
+        "EnergyCost": 0
+      }
+    ]
+  },
+  {
+    "SceneId": "rat_trap",
+    "Text": "Ви нахиляєтесь у темряву... Раптом звідти вистрибує величезний щур і боляче кусає вас за руку! Ви ледве відбилися.",
+    "ImagePath": "rat_hall",
+    "Choices": [
+      {
+        "Text": "Ааа! Відскочити назад",
+        "NextSceneId": "hall",
+        "EnergyCost": 15
+      }
+    ]
+  },
+  {
+    "SceneId": "office",
+    "Text": "Кабінет лорда Блеквуда. Все перевернуто догори дриґом. На столі лежать складні фінансові звіти, а біля вікна — розбита ваза.",
+    "ImagePath": "mansion_office",
+    "Choices": [
+      {
+        "Text": "Оглянути розбиту вазу",
+        "NextSceneId": "vase_clue",
+        "EnergyCost": 2,
+        "PromoteRank": true
+      },
+      {
+        "Text": "Вивчити фінансові звіти (Потрібен ранг Assistant)",
+        "NextSceneId": "secret_documents",
+        "EnergyCost": 5,
+        "RequiredRank": "Assistant"
+      },
+      {
+        "Text": "Повернутись у хол",
+        "NextSceneId": "hall",
+        "EnergyCost": 1
+      }
+    ]
+  },
+  {
+    "SceneId": "vase_clue",
+    "Text": "Серед уламків вази ви знаходите клаптик обгорілої тканини. Це цікава зачіпка! Ви відчуваєте, що стаєте досвідченішим.",
+    "ImagePath": "mansion_office",
+    "Choices": [
+      {
+        "Text": "Забрати тканину і повернутись (Ранг підвищено!)",
+        "NextSceneId": "office",
+        "EnergyCost": 0
+      }
+    ]
+  },
+  {
+    "SceneId": "secret_documents",
+    "Text": "Завдяки вашому досвіду, ви швидко знаходите подвійну бухгалтерію! Лорд Блеквуд був банкрутом.",
+    "ImagePath": "mansion_office",
+    "Choices": [
+      {
+        "Text": "Цікаво... Повернутись до огляду кабінету",
+        "NextSceneId": "office",
         "EnergyCost": 0
       }
     ]

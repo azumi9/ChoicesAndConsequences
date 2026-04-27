@@ -63,6 +63,26 @@ namespace ChoicesAndConsequences {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap mansion_corridor {
+            get {
+                object obj = ResourceManager.GetObject("mansion_corridor", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap mansion_door {
+            get {
+                object obj = ResourceManager.GetObject("mansion_door", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap mansion_gates {
             get {
                 object obj = ResourceManager.GetObject("mansion_gates", resourceCulture);
@@ -73,9 +93,39 @@ namespace ChoicesAndConsequences {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap mansion_hall {
+            get {
+                object obj = ResourceManager.GetObject("mansion_hall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap mansion_key {
             get {
                 object obj = ResourceManager.GetObject("mansion_key", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap portrait_blood {
+            get {
+                object obj = ResourceManager.GetObject("portrait_blood", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap rat_hall {
+            get {
+                object obj = ResourceManager.GetObject("rat_hall", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

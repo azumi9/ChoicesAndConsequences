@@ -46,6 +46,15 @@ namespace ChoicesAndConsequences.Services
                             {
                                 choice.Conditions.Add(new EnergyCondition(choice.EnergyCost));
                             }
+
+                            // 3. Додаємо умову рангу
+                            if (!string.IsNullOrEmpty(choice.RequiredRank))
+                            {
+                                if (Enum.TryParse<DetectiveRank>(choice.RequiredRank, out var parsedRank))
+                                {
+                                    choice.Conditions.Add(new RankCondition(parsedRank));
+                                }
+                            }
                         }
                     }
                 }

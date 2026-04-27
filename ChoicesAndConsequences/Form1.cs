@@ -27,6 +27,9 @@ namespace ChoicesAndConsequences
 
             lbInventory.DoubleClick += LbInventory_DoubleClick;
 
+            // ДОБАВЛЕНО: Галочка будет ставиться по первому клику
+            lbInventory.CheckOnClick = true;
+
             // Додаємо перевірку на null, щоб не було жовтого попередження
             var startScene = _gameService.GetSceneById("start");
             if (startScene != null)
@@ -66,19 +69,26 @@ namespace ChoicesAndConsequences
                 string btnText = choice.EnergyCost > 0 ? $"{choice.Text} (⚡{choice.EnergyCost})" : choice.Text;
                 Button btn = new Button { Text = btnText, AutoSize = true, Padding = new Padding(10) };
 
+                // ПРОВЕРЯЕМ УСЛОВИЯ ДО ТОГО, КАК ИГРОК НАЖАЛ
+                bool conditionsMet = true;
+                foreach (var condition in choice.Conditions)
+                {
+                    if (!condition.IsMet(_player, _gameService.GetInventory()))
+                    {
+                        conditionsMet = false;
+                        break;
+                    }
+                }
+
+                // Если условия не выполнены (нет ключа или энергии), делаем кнопку неактивной
+                if (!conditionsMet)
+                {
+                    btn.Enabled = false; // Кнопка станет серой и не будет кликаться
+                }
+
                 btn.Click += (s, e) =>
                 {
                     string nextSceneId = choice.NextSceneId;
-
-                    // Перевірка умов
-                    foreach (var condition in choice.Conditions)
-                    {
-                        if (!condition.IsMet(_player, _gameService.GetInventory()))
-                        {
-                            MessageBox.Show(condition.FailureMessage, "Доступ обмежено");
-                            return;
-                        }
-                    }
 
                     // Логіка кущів
                     if (nextSceneId == "find_coffee" && _isCoffeeExhausted)
@@ -113,6 +123,18 @@ namespace ChoicesAndConsequences
                     {
                         _gameService.AddToInventory(new Evidence("old_key", "Іржавий ключ", "Від воріт", ""));
                         RefreshInventoryUI();
+                    }
+
+                    // ДОДАТИ ЦЕ: Логіка підвищення рангу
+                    if (choice.PromoteRank)
+                    {
+                        var stats = _player.Stats;
+                        if (stats.Rank < DetectiveRank.Master) // Перевіряємо, щоб не вийти за межі максимального рангу
+                        {
+                            stats.Rank++; // Підвищуємо ранг на 1 рівень
+                            _player.Stats = stats;
+                            MessageBox.Show($"Вітаємо! Ваш детективний ранг підвищено до: {stats.Rank}!", "Підвищення рангу");
+                        }
                     }
 
                     var nextScene = _gameService.GetSceneById(nextSceneId);
@@ -161,7 +183,21 @@ namespace ChoicesAndConsequences
         }
 
         private void pbScene_Click(object sender, EventArgs e) { }
+
         private void flpChoices_Paint(object sender, PaintEventArgs e) { }
-        private void lbInventory_SelectedIndexChanged(object sender, EventArgs e) { }
+
+        private void lbInventory_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Если что-то выделено (индекс не равен -1), мы сразу снимаем выделение
+            if (lbInventory.SelectedIndex != -1)
+            {
+                lbInventory.ClearSelected();
+            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

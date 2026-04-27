@@ -52,7 +52,7 @@
             pbScene.Dock = DockStyle.Top;
             pbScene.Location = new Point(0, 0);
             pbScene.Name = "pbScene";
-            pbScene.Size = new Size(1641, 737);
+            pbScene.Size = new Size(1870, 831);
             pbScene.SizeMode = PictureBoxSizeMode.StretchImage;
             pbScene.TabIndex = 1;
             pbScene.TabStop = false;
@@ -62,10 +62,10 @@
             // 
             rtbStory.AccessibleName = "rtbSceneDescription";
             rtbStory.Font = new Font("Georgia", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 204);
-            rtbStory.Location = new Point(12, 743);
+            rtbStory.Location = new Point(12, 837);
             rtbStory.Name = "rtbStory";
             rtbStory.ReadOnly = true;
-            rtbStory.Size = new Size(1226, 81);
+            rtbStory.Size = new Size(1447, 84);
             rtbStory.TabIndex = 2;
             rtbStory.Text = "Ви стоїте перед старим особняком...";
             // 
@@ -73,9 +73,9 @@
             // 
             flpChoices.AccessibleName = "flpChoices";
             flpChoices.FlowDirection = FlowDirection.TopDown;
-            flpChoices.Location = new Point(37, 830);
+            flpChoices.Location = new Point(25, 927);
             flpChoices.Name = "flpChoices";
-            flpChoices.Size = new Size(834, 71);
+            flpChoices.Size = new Size(834, 80);
             flpChoices.TabIndex = 3;
             flpChoices.Paint += flpChoices_Paint;
             // 
@@ -84,9 +84,9 @@
             lbInventory.AccessibleName = "lbInventory";
             lbInventory.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             lbInventory.FormattingEnabled = true;
-            lbInventory.Location = new Point(1249, 677);
+            lbInventory.Location = new Point(1438, 769);
             lbInventory.Name = "lbInventory";
-            lbInventory.Size = new Size(392, 224);
+            lbInventory.Size = new Size(432, 246);
             lbInventory.TabIndex = 0;
             lbInventory.SelectedIndexChanged += lbInventory_SelectedIndexChanged;
             // 
@@ -95,17 +95,18 @@
             label1.AccessibleName = "Інвентар";
             label1.AutoSize = true;
             label1.Font = new Font("Gill Sans MT Ext Condensed Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(1409, 658);
+            label1.Location = new Point(1655, 755);
             label1.Name = "label1";
             label1.Size = new Size(93, 25);
             label1.TabIndex = 4;
             label1.Text = "Інвентар";
+            label1.Click += label1_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1641, 905);
+            ClientSize = new Size(1870, 1018);
             Controls.Add(label1);
             Controls.Add(lbInventory);
             Controls.Add(flpChoices);

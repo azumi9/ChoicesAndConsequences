@@ -1,6 +1,6 @@
 ﻿namespace ChoicesAndConsequences.Models
 {
-    // Пункт 5: Використання переліку (Enum) для рангів детектива
+    // Використання переліку (Enum) для рангів детектива
     public enum DetectiveRank
     {
         Novice,       // Новачок
